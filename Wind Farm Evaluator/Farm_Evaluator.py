@@ -71,7 +71,7 @@ def getTurbLoc(turb_loc_file_name):
         
     :return
         2D array
-    """
+    """+
     
     df = pd.read_csv(turb_loc_file_name, sep=',')
     turb_coords = df.to_numpy(dtype = np.float32)
@@ -464,14 +464,14 @@ if __name__ == "__main__":
     
     
     # Turbine x,y coordinates
-    turb_coords    =  getTurbLoc(r'..\Shell_Hackathon Dataset\turbine_loc_test.csv')
+    turb_coords    =  getTurbLoc(r'../Shell_Hackathon-Dataset/turbine_loc_test.csv')
     
     # Load the power curve
-    power_curve    =  loadPowerCurve('..\Shell_Hackathon Dataset\power_curve.csv')
+    power_curve    =  loadPowerCurve('../Shell_Hackathon-Dataset/power_curve.csv')
     
     # Pass wind data csv file location to function binWindResourceData.
     # Retrieve probabilities of wind instance occurence.
-    wind_inst_freq =  binWindResourceData(r'..\Shell_Hackathon Dataset\Wind Data\wind_data_2007.csv')
+    wind_inst_freq =  binWindResourceData(r'../Shell_Hackathon-Dataset/Wind-Data/wind_data_2007.csv')
     
     # check if there is any constraint is violated before we do anything. Comment 
     # out the function call to checkConstraints below if you desire. Note that 
