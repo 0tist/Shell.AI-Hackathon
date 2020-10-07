@@ -13,7 +13,11 @@ class WindMill(object):
 
     def ret_wake(self, x, y):
         D = self.dia
-        decay = wake_decay
+        kw = WindMill.wake_decay
+        ct = self.thrust_coeff
+        if(x - self.x > 0 and y <= (D + 2*kw)/2):
+            return ((1 - np.sqrt(1 - ct))*(D/(D + 2*kw*(x - self.x)))**2)
+        return 0
 
     def __sub__(self, other):
         return np.sqrt((self.x - other.x)**2 + (self.y - other.y)**2)
